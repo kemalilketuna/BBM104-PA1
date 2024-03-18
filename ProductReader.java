@@ -1,6 +1,19 @@
 import java.io.*;
 
+/**
+ * Utility class for reading product information from a file and adding the products to a SlotManager.
+ */
 public class ProductReader {
+
+    /**
+     * Reads product data from a specified file and adds the products to a SlotManager.
+     * Each line of the file is expected to contain product information separated by tabs,
+     * with the product's nutrients separated by spaces.
+     *
+     * @param filename The name of the file containing product data.
+     * @return A SlotManager instance populated with the products read from the file.
+     * @throws RuntimeException If there is an error reading the file.
+     */
     public static SlotManager addProductsFromFile(String filename) {
         try {
             SlotManager productPlanner = new SlotManager(24);
@@ -20,8 +33,7 @@ public class ProductReader {
             reader.close();
             return productPlanner;
         } catch (IOException e) {
-            throw new RuntimeException("Error reading file: " + e);
+            throw new RuntimeException("Error reading file: " + e.getMessage());
         }
     }
-    
 }
