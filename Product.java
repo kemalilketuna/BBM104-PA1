@@ -1,5 +1,4 @@
 public class Product {
-    // protein, carb. fat, calories
     private String name;
     private int price;
     private float protein;
@@ -16,7 +15,6 @@ public class Product {
         this.calories = 4*protein + 4*carb + 9*fat;
     }
 
-    //getters
     public String getName() {
         return name;
     }

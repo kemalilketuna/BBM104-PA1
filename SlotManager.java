@@ -1,6 +1,3 @@
-import java.util.*;
-import java.io.*;
-
 public class SlotManager {
     private int slotCount;
     private MachineSlots[] machineSlots;
