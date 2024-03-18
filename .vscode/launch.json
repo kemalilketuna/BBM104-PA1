@@ -6,10 +6,26 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
+            "name": "Test1",
             "request": "launch",
             "mainClass": "${file}",
-            "args": ["i1.txt", "i2.txt", "o1.txt"],
+            "args": ["BBM104_S24_PA1_IO_Files_v2/Sample_IO_Files_Pack_1/Product_1.txt", "BBM104_S24_PA1_IO_Files_v2/Sample_IO_Files_Pack_1/Purchase_1.txt", "o1.txt"],
+            "preLaunchTask": "javac"
+        },
+        {
+            "type": "java",
+            "name": "Test2",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ["BBM104_S24_PA1_IO_Files_v2/Sample_IO_Files_Pack_2/Product_2.txt", "BBM104_S24_PA1_IO_Files_v2/Sample_IO_Files_Pack_2/Purchase_2.txt", "o2.txt"],
+            "preLaunchTask": "javac"
+        },
+        {
+            "type": "java",
+            "name": "Test3",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ["BBM104_S24_PA1_IO_Files_v2/Sample_IO_Files_Pack_3/Product_3.txt", "BBM104_S24_PA1_IO_Files_v2/Sample_IO_Files_Pack_3/Purchase_3.txt", "o3.txt"],
             "preLaunchTask": "javac"
         },
     ]

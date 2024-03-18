@@ -1,9 +1,9 @@
 import java.io.*;
 
 public class ProductReader {
-    public static ProductManager addProductsFromFile(String filename) {
+    public static SlotManager addProductsFromFile(String filename) {
         try {
-            ProductManager productPlanner = new ProductManager(24);
+            SlotManager productPlanner = new SlotManager(24);
 
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             String line;

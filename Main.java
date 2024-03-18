@@ -10,9 +10,15 @@ public class Main {
         // PrintStream fileOut = new PrintStream(new File(args[2]));
         // System.setOut(fileOut);
         
-        ProductManager productManager = ProductReader.addProductsFromFile(args[0]);
-        productManager.logSlots();
-        PurchaseReader.readProductFile(args[1]);
+        SlotManager slotManager = ProductReader.addProductsFromFile(args[0]);
+        slotManager.logIsFull();
+        slotManager.logSlots();
+
+        
+        PurchaseReader purchaseReader = new PurchaseReader(args[1]);
+        for (String commands : purchaseReader) {
+            
+        }
 
         System.out.close();
         System.setOut(originalOut); // Restore the original System.out

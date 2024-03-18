@@ -1,12 +1,12 @@
 import java.util.*;
 import java.io.*;
 
-public class ProductManager {
+public class SlotManager {
     private int slotCount;
     private MachineSlots[] machineSlots;
     private int emptySlotCount;
 
-    public ProductManager(int slotCount){
+    public SlotManager(int slotCount){
         this.slotCount = slotCount;
         this.emptySlotCount = slotCount;
 
