@@ -10,7 +10,8 @@ public class Main {
         // PrintStream fileOut = new PrintStream(new File(args[2]));
         // System.setOut(fileOut);
         
-        ProductReader.readProductFile(args[0]);
+        ProductManager productManager = ProductReader.addProductsFromFile(args[0]);
+        productManager.logSlots();
         PurchaseReader.readProductFile(args[1]);
 
         System.out.close();

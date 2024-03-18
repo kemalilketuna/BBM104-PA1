@@ -16,7 +16,7 @@ public class PurchaseReader {
             }
             reader.close();
         } catch (IOException e) {
-            System.out.println("Error reading file: " + e);
+            throw new RuntimeException("Error reading file: " + e);
         }
     }
     
