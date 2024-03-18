@@ -5,6 +5,8 @@ public class SlotManager {
     private int slotCount;
     private MachineSlots[] machineSlots;
     private int emptySlotCount;
+    private boolean isAllSlotsFull = false;
+    private boolean isSlotManagerActive = true;
 
     public SlotManager(int slotCount){
         this.slotCount = slotCount;
@@ -32,6 +34,10 @@ public class SlotManager {
     }
 
     public void addProduct(Product product){
+        if (!isSlotManagerActive){
+            return;
+        }
+
         int slotIndex = avaiableSlot(product);
         if (slotIndex != -1){
             MachineSlots slot = machineSlots[slotIndex];
@@ -41,27 +47,38 @@ public class SlotManager {
         }else{
             LogMessages.noAvailableSpace(product.getName());
         }
+
+        if (isAllSlotsFull){
+            LogMessages.machineIsFull();
+            isSlotManagerActive = false;
+        }
+
+        checkAllSlotsFull();
     }
 
-    public boolean isMachineFull(){
-        return emptySlotCount == 0;
+    private void checkAllSlotsFull(){
+        for(int i = 0; i < slotCount; i++){
+            if(!machineSlots[i].isFull()){
+                isAllSlotsFull = false;
+                return;
+            }
+        }
+        isAllSlotsFull = true;
     }
 
     public boolean isMachineEmpty(){
         return emptySlotCount == slotCount;
     }
 
-    public int getSlothCount(){
+    public int getSlotCount(){
         return slotCount;
-    }
-
-    public void logIsFull(){
-        if (isMachineFull()){
-            LogMessages.machineIsFull();
-        }
     }
 
     public void logSlots(){
         LogMessages.slotLog(machineSlots);
+    }
+
+    public MachineSlots[] getMachineSlots(){
+        return machineSlots;
     }
 }

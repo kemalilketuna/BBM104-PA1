@@ -7,19 +7,20 @@ public class Main {
         PrintStream originalOut = System.out; // Store the original System.out to restore it later
 
         // TODO: Change this later
-        // PrintStream fileOut = new PrintStream(new File(args[2]));
-        // System.setOut(fileOut);
+        PrintStream fileOut = new PrintStream(new File(args[2]));
+        System.setOut(fileOut);
         
         SlotManager slotManager = ProductReader.addProductsFromFile(args[0]);
-        slotManager.logIsFull();
         slotManager.logSlots();
 
-        
+        PurchasePlanner purchasePlanner = new PurchasePlanner(slotManager.getMachineSlots());
+
         PurchaseReader purchaseReader = new PurchaseReader(args[1]);
         for (String commands : purchaseReader) {
-            
+            purchasePlanner.executeCommand(commands);
         }
-
+        
+        slotManager.logSlots();
         System.out.close();
         System.setOut(originalOut); // Restore the original System.out
     }
