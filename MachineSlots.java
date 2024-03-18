@@ -18,9 +18,9 @@ public class MachineSlots {
     public int removeProduct() {
         if (count > 0) {
             count--;
-            return 0;
-        }else if (count == 0) {
-            productType = null;
+            if (count == 0) {
+                productType = null;
+            }
             return 0;
         } else {
             return -1;

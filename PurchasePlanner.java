@@ -56,7 +56,7 @@ public class PurchasePlanner {
                     break;
             }
 
-            if (Math.abs(amount - searchValue) < 5){
+            if (Math.abs(amount - searchValue) <= 5){
                 if (product.getPrice() > totalMoney){
                     LogMessages.insufficientMonet();
                     LogMessages.returningChance(totalMoney);
