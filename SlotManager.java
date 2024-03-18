@@ -46,7 +46,7 @@ public class SlotManager {
     }
 
     /**
-     * Adds a product to an available slot. If all slots are full, logs a message and deactivates the slot manager.
+     * Adds a product to an available slot. If all slots are full, logs a message and deactivates the slot manager if vending machine is full.
      *
      * @param product The product to add to the machine.
      */
